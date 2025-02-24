@@ -1,36 +1,32 @@
-# Proyecto CSV a XLSX
+# Proyecto CSV a XLSX y PDF
 
-Este proyecto convierte un archivo CSV de asistentes en un archivo XLSX, ordenando los nombres y apellidos de diferentes maneras.
-
+Este proyecto convierte un archivo CSV de asistentes en un archivo XLSX, ordenando los nombres y apellidos de diferentes maneras y luego convierte el archivo XLSX a PDF.
 
 ## Archivos
 
 - `asistentes.csv`: Contiene la lista de asistentes con nombres y apellidos.
-- `alumnosCsvToXslx_alfabeticamenteDerecha.py`: Ordena los asistentes alfabéticamente por apellido y nombre y los coloca en el archivo XLSX de izquierda a derecha.
-- `alumnosCsvToXslx_alfabeticamenteAbajo.py`: Ordena los asistentes alfabéticamente por apellido y nombre y los coloca en el archivo XLSX de arriba hacia abajo.
+- `csvToXlsxToPDF.py`: Convierte el archivo CSV a XLSX y luego a PDF.
 
 ## Uso
 
-1. Asegúrate de tener `openpyxl` instalado:
+1. Asegúrate de tener `openpyxl`, `pandas`, y `pdfkit` instalados:
     ```sh
-    pip install openpyxl
+    pip install openpyxl pandas pdfkit
     ```
 
-2. Coloca el archivo `asistentes.csv` en el mismo directorio que los scripts de Python.
+2. Instala `wkhtmltopdf`:
+    - Descarga `wkhtmltopdf` desde [wkhtmltopdf download page](https://wkhtmltopdf.org/downloads.html).
+    - Sigue las instrucciones de instalación para tu sistema operativo.
+    - Asegúrate de que el ejecutable `wkhtmltopdf` esté en tu PATH o especifica la ruta en el script.
 
-3. Ejecuta uno de los scripts de Python según el orden deseado:
+3. Coloca el archivo `asistentes.csv` en el mismo directorio que los scripts de Python.
 
-    - Para ordenar de izquierda a derecha:
-        ```sh
-        python alumnosCsvToXslx_alfabeticamenteDerecha.py
-        ```
+4. Ejecuta el script de Python para convertir el archivo CSV a XLSX y luego a PDF:
+    ```sh
+    python csvToXlsxToPDF.py
+    ```
 
-    - Para ordenar de arriba hacia abajo:
-        ```sh
-        python alumnosCsvToXslx_alfabeticamenteAbajo.py
-        ```
-
-4. El archivo `asistentes.xlsx` se generará en el mismo directorio.
+5. El archivo `asistencia_YYYY-MM-DD.xlsx` y `asistencia_YYYY-MM-DD.pdf` se generarán en el mismo directorio.
 
 ## Estructura del CSV
 
@@ -47,7 +43,7 @@ Lorenzo,Perez Muñoz
 ## Notas
 
 - Asegúrate de que el archivo CSV esté codificado en UTF-8.
-- Los scripts ordenan los asistentes alfabéticamente por apellidos y luego por nombres en caso de apellidos iguales.
+- El script ordena los asistentes alfabéticamente por apellidos y luego por nombres en caso de apellidos iguales.
 - Los nombres de `asistentes.csv` han sido generados por [ChatGPT](chatgpt.com).
 
 ## Autores

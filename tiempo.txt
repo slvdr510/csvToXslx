@@ -1,0 +1,19 @@
+agregando:
+nombre asignatura
+semana docencia
+tema asignatura
+a la hoja xlsx
+(1h 45min)
+
+testeando como se ven los cambios y como re-ordenar visualmente lo agregado antes
+(4min)
+
+agrego formato de fecha anyo-mes-dia en el nombre del archivo final xlsx
+(10min)
+
+agregar un boolean para controlar como escribir los alumnos ordenados alfabeticamente (hacia abajo o hacia la derecha)
+pasar xlsx a pdf (investigando)
+(7 min)
+
+pasar xlsx a pdf
+(1h)
