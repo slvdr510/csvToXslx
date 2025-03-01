@@ -15,6 +15,14 @@ tema_asignatura = "Tema 1 - Introducción"
 orden_alfabetico_hacia_abajo = True
 ##########################################################
 
+##########################################################
+#                      MAGIC WORDS                       #
+ARCHIVO_CSV = "asistentes.csv"
+CABECERA_COLUMNA_NOMBRE = "NOMBRE"
+CABECERA_COLUMNA_APELLIDOS = "APELLIDOS"
+##########################################################
+
+
 # Get the absolute path to the current folder
 current_folder = os.path.abspath(os.path.dirname(__file__))
 
@@ -25,7 +33,7 @@ pdf_filename = os.path.join(current_folder, f"asistencia_{fechaActual_formatoInd
 
 # Leer el archivo csv y guardarlo en una lista
 nombres_y_apellidos = []
-with open(os.path.join(current_folder, "asistentes.csv"), newline="", encoding="utf-8") as file:
+with open(os.path.join(current_folder, ARCHIVO_CSV), newline="", encoding="utf-8") as file:
     reader = csv.reader(file)
     for row in reader:
         nombres_y_apellidos.append(row)
@@ -89,10 +97,10 @@ else:
 
 # Añadir la cabecera de las columnas Nombre y Apellidos
 hoja.insert_rows(1)
-hoja.cell(row=1, column=1).value = "NOMBRE"
-hoja.cell(row=1, column=2).value = "APELLIDOS"
-hoja.cell(row=1, column=4).value = "NOMBRE"
-hoja.cell(row=1, column=5).value = "APELLIDOS"
+hoja.cell(row=1, column=1).value = CABECERA_COLUMNA_NOMBRE
+hoja.cell(row=1, column=2).value = CABECERA_COLUMNA_APELLIDOS
+hoja.cell(row=1, column=4).value = CABECERA_COLUMNA_NOMBRE
+hoja.cell(row=1, column=5).value = CABECERA_COLUMNA_APELLIDOS
 
 # Añadir la cabecera de las columnas: Nombre de la asignatura, Semana de docencia, Tema y Fecha actual
 hoja.insert_rows(1)
@@ -153,9 +161,13 @@ html_string = f"""
             border: 1px solid #dddddd;
             text-align: left;
             padding: 8px;
+            min-width: 100px; /* Set minimum width for table cells */
         }}
         th {{
             background-color: #f2f2f2;
+        }}
+        tr {{
+            min-height: 30px; /* Set minimum height for table rows */
         }}
     </style>
 </head>
